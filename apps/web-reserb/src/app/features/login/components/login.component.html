@@ -15,38 +15,38 @@
           </div>
         </div>
       </mat-card-header>
-       <mat-card-content>
-         <form>
+       <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+         <mat-card-content>
            <div class="row mt-3">
              <div class="col-12 d-flex justify-content-center style-input">
                <mat-form-field class="d-block text-center style-field">
-                 <input matInput placeholder="Ingrese usuario" >
+                 <input matInput placeholder="Ingrese usuario" formControlName="username">
                </mat-form-field>
              </div>
 
              <div class="col-12 d-flex justify-content-center style-input">
                <mat-form-field class="d-block text-center style-field">
-                 <input matInput placeholder="Ingrese contraseña" >
+                 <input matInput placeholder="Ingrese contraseña" formControlName="password">
                </mat-form-field>
              </div>
            </div>
-         </form>
-       </mat-card-content>
-       <mat-card-actions>
-         <div class="d-flex justify-content-center style-options">
-           <div class="w-100 d-flex justify-content-between">
-             <div class="">
-               <mat-checkbox color="basic">Recordar</mat-checkbox>
-             </div>
-             <div class="">
-               <a href="#" class="text-decoration-none style-link">Olvide mi contraseña</a>
+         </mat-card-content>
+         <mat-card-actions>
+           <div class="d-flex justify-content-center style-options">
+             <div class="w-100 d-flex justify-content-between">
+               <div class="">
+                 <mat-checkbox color="basic">Recordar</mat-checkbox>
+               </div>
+               <div class="">
+                 <a href="#" class="text-decoration-none style-link">Olvide mi contraseña</a>
+               </div>
              </div>
            </div>
-         </div>
-         <div class="d-flex justify-content-center mt-4 mb-2">
-           <button mat-flat-button class="style-button">Ingresar</button>
-         </div>
-       </mat-card-actions>
+           <div class="d-flex justify-content-center mt-4 mb-2">
+             <button mat-flat-button class="style-button" type="submit">Ingresar</button>
+           </div>
+         </mat-card-actions>
+       </form>
       </mat-card>
     </div>
   </div>
