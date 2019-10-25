@@ -47,9 +47,15 @@
   .mat-form-field-wrapper{
     .mat-form-field-flex{
       .mat-form-field-infix{
+        .mat-input-element{
+          color: #ffffff;
+        }
         .mat-form-field-label-wrapper{
           .mat-form-field-label{
-            color: rgba(0,0,0,0.3);
+            //color: #000080;
+          }
+          .mat-form-field-empty{
+            //color: #000080;
           }
         }
       }

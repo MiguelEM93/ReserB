@@ -8,7 +8,7 @@ import { SharedModule } from './features/shared/shared.module';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -16,9 +16,9 @@ const routes: Routes = [
     loadChildren: './features/login/login.module#LoginModule'
   },
   {
-    path: 'home',
-    loadChildren: './features/home/home.module#HomeModule'
-  }
+    path: '',
+    loadChildren: './features/layout/layout.module#LayoutModule'
+  },
 ];
 
 @NgModule({
