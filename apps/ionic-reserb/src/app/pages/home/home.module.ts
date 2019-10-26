@@ -9,4 +9,5 @@ import { HomeComponent } from './home.component';
   declarations: [HomeComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HomeModule {}
+export class HomeModule {
+}

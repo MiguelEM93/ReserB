@@ -1,8 +1,14 @@
-import { Component } from '@angular/core';
-import { BaseComponent } from '@reserb-app/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.component.html'
+  selector: 'reserb-app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent extends BaseComponent {}
+export class HomeComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {}
+
+}
