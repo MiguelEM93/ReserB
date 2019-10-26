@@ -1,19 +1,24 @@
-<reserb-app-ion-header [title]="'Ionic App'"></reserb-app-ion-header>
-
-<ion-content padding>
+<ion-content class="ion-padding">
   <div class="p-20">
-    The world is your oyster.
-    <p>
-      If you get lost, the
-      <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/"
-        >docs</a
-      >
-      will be your guide.
-    </p>
-    <h2>{{ 'hello' | translate }}</h2>
-    <p>
-      Learn more about
-      <a href="https://nstudio.io/xplat" target="_blank">xplat</a>.
-    </p>
+    <ion-img src="assets/imgs/reserb.jpeg"></ion-img>
+  </div>
+  <div>
+    <ion-label color="light" position=" ">reserva cualquier espacio</ion-label>
+  </div>
+  <div class="p-20">
+    <ion-item>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </div>
+  <div class="p-20">
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </div>
+  <div class="p-20">
+      <ion-button color="light">Registro</ion-button>
+      <ion-button color="light">Ingreso</ion-button>
   </div>
 </ion-content>
