@@ -1,5 +1,5 @@
 export namespace LoginConstants {
 
-  export const HOME = '/login'
+  export const HOME = '/home'
 
 }

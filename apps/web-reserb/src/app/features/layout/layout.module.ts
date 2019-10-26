@@ -11,11 +11,11 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/login',
+        redirectTo: '/home',
       },
       {
-        path: 'login',
-        loadChildren: '../login/login.module#HomeModule',
+        path: 'home',
+        loadChildren: '../home/home.module#HomeModule',
       },
       {
         path: 'mis-espacios',

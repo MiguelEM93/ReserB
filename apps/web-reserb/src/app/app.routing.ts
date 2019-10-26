@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './features/login/login.module#HomeModule'
+    loadChildren: './features/login/login.module#LoginModule'
   },
   {
     path: '',
@@ -22,6 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  exports: [RouterModule],
   imports: [SharedModule, RouterModule.forRoot(routes)]
 })
 export class AppRoutingModule {}

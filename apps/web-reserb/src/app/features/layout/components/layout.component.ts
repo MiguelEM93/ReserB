@@ -17,7 +17,7 @@ export class LayoutComponent extends BaseComponent implements OnInit{
   ngOnInit() {}
 
   toHome() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
   toSpaces() {
