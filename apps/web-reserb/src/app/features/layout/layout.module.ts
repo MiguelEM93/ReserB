@@ -17,6 +17,10 @@ const routes: Routes = [
         path: 'login',
         loadChildren: '../login/login.module#HomeModule',
       },
+      {
+        path: 'mis-espacios',
+        loadChildren: '../spaces/spaces.module#SpacesModule',
+      }
     ]
   },
 ]

@@ -20,4 +20,12 @@ export class LayoutComponent extends BaseComponent implements OnInit{
     this.router.navigate(['/login']);
   }
 
+  toSpaces() {
+    this.router.navigate(['/mis-espacios']);
+  }
+
+  toReservations() {}
+
+  toProfile() {}
+
 }
