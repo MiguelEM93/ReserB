@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: center;
   background-color: #1386E1;
+  z-index: 1;
+  box-shadow: 1px 2px 8px 2px rgba(0,0,0,0.5);
   .subtitle-style{
     margin-left: 25px;
     font-style: italic;
@@ -21,6 +23,7 @@
     position: relative;
     flex: 0 0 250px;
     padding: 35px 15px;
+    box-shadow: 1px 0px 9px 1px rgba(0, 0, 0, 0.5);
   }
   .content-right{
     background: #ffffff;
@@ -50,6 +53,7 @@
       span{
         margin-left: 50px;
         font-size: 24px;
+        color: rgb(63, 81, 181);
       }
     }
   }

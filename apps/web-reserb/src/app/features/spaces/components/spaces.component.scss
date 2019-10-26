@@ -1,0 +1,26 @@
+.reserb-spaces{
+  width: 100%;
+}
+
+.title-style{
+  font-size: 24px;
+  font-weight: 600,;
+  color: #1386E1;
+}
+
+.card-reserb {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px 0;
+  height: 165px;
+
+  .card-description{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .icon-size{
+    font-size: 35px;
+  }
+}

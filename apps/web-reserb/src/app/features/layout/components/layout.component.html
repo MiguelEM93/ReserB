@@ -11,25 +11,25 @@
   <div class="content-style">
     <div class="sidenav-style">
 
-      <div class="pb-4 icon-style">
+      <div class="py-5 icon-style">
         <button mat-icon-button (click)="toHome()">
           <mat-icon color="primary">home</mat-icon>
           <span>HOME</span>
         </button>
       </div>
-      <div class="py-4 icon-style">
-        <button mat-icon-button>
+      <div class="py-5 icon-style">
+        <button mat-icon-button (click)="toSpaces()">
           <mat-icon color="primary">view_list</mat-icon>
           <span>ESPACIOS</span>
         </button>
       </div>
-      <div class="py-4 icon-style">
+      <div class="py-5 icon-style">
         <button mat-icon-button>
           <mat-icon color="primary">done_outline</mat-icon>
           <span>RESERVAS</span>
         </button>
       </div>
-      <div class="pt-4 icon-style">
+      <div class="py-5 icon-style">
         <button mat-icon-button>
           <mat-icon color="primary">person_pin</mat-icon>
           <span>PERFIL</span>
@@ -38,9 +38,7 @@
 
     </div>
     <div class="content-right">
-      <div>
         <router-outlet></router-outlet>
-      </div>
     </div>
   </div>
 
