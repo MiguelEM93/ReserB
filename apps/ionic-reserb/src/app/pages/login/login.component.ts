@@ -15,4 +15,8 @@ export class LoginComponent extends BaseComponent {
   toHome() {
     this.router.navigate(['/home/tab1']);
   }
+
+  toSignUp() {
+    this.router.navigate(['/signup']);
+  }
 }
