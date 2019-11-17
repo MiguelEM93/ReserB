@@ -29,6 +29,7 @@
     "clean": "npx rimraf -- hooks node_modules package-lock.json && npm i",
     "start.web.reserb": "ng serve web-reserb",
     "start.ionic.reserb": "ng serve ionic-reserb",
+    "build.web.reserb": "ng build web-reserb --aot --prod",
     "build.ionic.reserb": "ng build ionic-reserb",
     "prepare.ionic.reserb": "npm run clean && npm run clean.ionic.reserb && npm run build.ionic.reserb",
     "prepare.ionic.reserb.ios": "npm run prepare.ionic.reserb && cd apps/ionic-reserb && npm run cap.add.ios",

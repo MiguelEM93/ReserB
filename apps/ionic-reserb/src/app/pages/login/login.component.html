@@ -1,24 +1,30 @@
-<ion-content class="ion-padding colored-background">
-  <div class="p-20">
-    <ion-img src="assets/imgs/reserb.jpeg"></ion-img>
+<!--<ion-content class="ion-padding">-->
+<div class="login-container">
+  <div class="login-image">
+    <ion-img src="assets/imgs/logo.png"></ion-img>
   </div>
-  <div>
-    <ion-label color="light" position=" ">reserva cualquier espacio</ion-label>
+  <div class="login-subtitle">
+    <p>Reserva cualquier espacio</p>
   </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">E-mail</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-      <ion-button color="light" (click)="toSignUp()">Registro</ion-button>
-      <ion-button color="light" (click)="toHome()">Ingreso</ion-button>
-  </div>
-</ion-content>
+
+  <form action="">
+    <ion-list>
+        <ion-item>
+            <ion-label position="stacked">E-mail</ion-label>
+            <ion-input class=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Contraseña</ion-label>
+            <ion-input type="password"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div class="login-enter">
+        <ion-button color="primary" (click)="toHome()">Ingreso</ion-button>
+    </div>
+    <div class="login-register">
+      ¿No tienes cuenta?
+      <span (click)="toSignUp()" class="login-register">Registrate</span>
+    </div>
+  </form>
+</div>
+<!--</ion-content>-->

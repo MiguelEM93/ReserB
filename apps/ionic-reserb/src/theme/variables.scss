@@ -4,12 +4,12 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary: #3F51B5;
+  --ion-color-primary-rgb: 63, 81, 181;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #3F51B5;
+  --ion-color-primary-tint: #3F51B5;
 
   /** secondary **/
   --ion-color-secondary: #0cd1e8;
@@ -77,5 +77,50 @@
 }
 
 .colored-background{
-  --background: #1386E1;
+  --background: #ffffff;
+}
+
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 16px;
+  --background: #f4f5f7;
+}
+
+ion-header{
+  ion-toolbar{
+    --ion-background-color: #3F51B5 !important;
+    ion-title{
+      color: #ffffff;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}
+
+.card-content{
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.button-space{
+  &__small{
+    margin: 20px 0;
+    ion-button{
+      width: 100px;
+    }
+  }
+  &__medium{
+    margin: 20px 0;
+    ion-button{
+      width: 200px;
+    }
+  }
+  &__large{
+    margin: 20px 0;
+    ion-button{
+      width: 300px;
+    }
+  }
 }

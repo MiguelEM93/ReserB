@@ -14,4 +14,6 @@ export class SpacesComponent extends BaseComponent {
     super();
   }
 
+  toHome(){}
+
 }

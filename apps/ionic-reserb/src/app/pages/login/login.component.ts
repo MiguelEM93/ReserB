@@ -3,7 +3,7 @@ import { BaseComponent } from '@reserb-app/core';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'page-home',
+  selector: 'page-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss']
 })

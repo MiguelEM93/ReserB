@@ -1,0 +1,55 @@
+:host{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-container {
+    .login-image {
+      padding:20px 20px  0 20px;
+      ion-img {
+        height: 60px;
+      }
+    }
+
+    .login-subtitle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+      p {
+        margin: 5px;
+        font-style: italic;
+        color: #3F51B5;
+      }
+    }
+
+    ion-item {
+      margin: 0 55px 25px;
+      ion-input {
+        text-align: center !important;
+      }
+      ion-label {
+        font-size: 18px;
+      }
+    }
+
+    .login-enter {
+      margin: 45px 20px 0;
+      text-align: center;
+      ion-button {
+        width: 230px;
+        height: 40px;
+        font-weight: 700;
+      }
+    }
+
+    .login-register {
+      font-size: 14px;
+      margin: 20px 0;
+      text-align: center;
+      span {
+        font-weight: 600;
+        color: #3F51B5;
+      }
+    }
+  }
+}

@@ -1,27 +1,24 @@
 .card-background-page {
 
-  ion-card {
-    position: relative;
-    text-align: center;
-    height: 17%;
+  .text-space{
+    margin-bottom: 20px;
   }
 
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
+  .image-size{
     width: 100%;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    height: 200px;
   }
 
-  .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
+  .description-category{
+    margin: 10px 0;
+    color: rgba(0,0,0,0.5);;
   }
+
+  .description-card{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+
 
 }
