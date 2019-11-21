@@ -1,3 +1,25 @@
 .text-space{
   margin-bottom: 20px;
 }
+
+.card-reserve{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+
+  .title-description{
+    font-weight: 600;
+  }
+
+  .link-detail{
+    font-weight: 600;
+    color: #3F51B5;
+  }
+
+  .image-reservations{
+    display: block;
+    width: 150px;
+    height: 125px;
+  }
+}
