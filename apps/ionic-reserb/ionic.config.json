@@ -1,8 +1,8 @@
 {
   "name": "reserb",
-  "type": "angular",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
-  "app_id": ""
+  "type": "angular"
 }

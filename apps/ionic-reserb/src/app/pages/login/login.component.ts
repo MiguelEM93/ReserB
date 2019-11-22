@@ -3,6 +3,8 @@ import { BaseComponent } from '@reserb-app/core';
 import {Router} from '@angular/router';
 import { LoginService } from './login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { filter, takeUntil } from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   providers: [LoginService],
@@ -13,16 +15,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent extends BaseComponent implements OnInit, AfterViewInit {
 
   formLogin: FormGroup;
-  showErrorMessage: boolean;
 
-  constructor(private router: Router, protected loginService: LoginService) {
+  constructor(
+    private router: Router,
+    protected loginService: LoginService,
+    public alertController: AlertController
+  ) {
     super();
     this.loginService.callCusotomersService();
   }
 
   ngOnInit() {
     this.initForm();
-    this.listenChangesEmail();
+    this.listenLoginCredentials();
   }
 
   ngAfterViewInit() {
@@ -31,15 +36,14 @@ export class LoginComponent extends BaseComponent implements OnInit, AfterViewIn
     });
   }
 
-  listenChangesEmail() {
-    this.formLogin.get('email').valueChanges.subscribe((val) => {
-      console.log("FORMULARIO", this.formLogin);
-      if(val !== '') {
-        this.showErrorMessage = false ;
-      } else {
-        this.showErrorMessage = true;
-      }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'This is an alert message.',
+      buttons: ['OK']
     });
+    await alert.present();
   }
 
   initForm() {
@@ -64,10 +68,22 @@ export class LoginComponent extends BaseComponent implements OnInit, AfterViewIn
     this.loginService.callLoginService(request);
   }
 
-  toHome() {
+  listenLoginCredentials() {
+    const filterData = (data) => data;
+    this.loginService.login$
+      .pipe(filter(filterData), takeUntil(this.destroy$))
+      .subscribe((data) => {
+        if(data.status === 'success'){
+          this.router.navigate(['/home/tab1']);
+        } else {
+          this.presentAlert();
+        }
+    })
+  }
+
+  submit() {
     if(this.formLogin.valid){
       this.sendRequest();
-      // this.router.navigate(['/home/tab1']);
     }
   }
 

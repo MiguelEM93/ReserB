@@ -3,51 +3,59 @@
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding colored-background">
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">E-mail</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">Nombres</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">Apellidos</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">Fecha de Nacimiento</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </div>
-  <div class="p-20">
-    <ion-item>
-      <ion-label position="floating">Terminos y condiciones:</ion-label>
-      <ion-textarea
-        readonly
-        value="Ionic enables developers to build performant, high-quality mobile apps."
-      ></ion-textarea>
-    </ion-item>
-  </div>
-  <div>
-    <ion-checkbox slot="end"></ion-checkbox>
-    <ion-label color="light">Acepto los terminos y condiciones</ion-label>
-  </div>
-  <div class="p-20">
-    <ion-button color="light" (click)="toLogin()">Registrarse</ion-button>
+<ion-content>
+  <div class="card-content">
+    <form [formGroup]="formSignup"  (ngSubmit)="submit()">
+      <ion-list>
+        <div class="p-20">
+          <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input formControlName="email"></ion-input>
+          </ion-item>
+        </div>
+        <div class="p-20">
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password"></ion-input>
+          </ion-item>
+        </div>
+        <div class="p-20">
+          <ion-item>
+            <ion-label position="floating">Nombres</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </div>
+        <div class="p-20">
+          <ion-item>
+            <ion-label position="floating">Apellidos</ion-label>
+            <ion-input formControlName="lastName"></ion-input>
+          </ion-item>
+        </div>
+
+        <div class="p-20">
+          <ion-item>
+            <ion-label>Fecha de nacimiento</ion-label>
+            <ion-datetime
+              formControlName="birthdate"
+              displayFormat="MMM DD, YYYY"
+              [value]="maxDate"
+              [max]="maxDate"></ion-datetime>
+          </ion-item>
+        </div>
+
+        <div class="terms-conditions p-20">
+          <ion-checkbox slot="end" formControlName="termsAndConditions"></ion-checkbox>
+          <ion-label color="primary">Acepto los terminos y condiciones</ion-label>
+        </div>
+        <div class="p-20 signup-enter ion-text-center">
+          <div>
+            <ion-button color="primary" (click)="toLogin()">Cancelar</ion-button>
+          </div>
+          <div>
+            <ion-button color="primary" type="submit">Registrarse</ion-button>
+          </div>
+        </div>
+      </ion-list>
+    </form>
   </div>
 </ion-content>

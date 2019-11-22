@@ -1,0 +1,17 @@
+.terms-conditions{
+  display: flex;
+  align-items: center;
+  ion-label{
+    margin-left: 10px;
+  }
+}
+
+.signup-enter{
+  display: flex;
+  justify-content: space-between;
+  ion-button {
+    width: 135px;
+    height: 39px;
+    font-weight: 600;
+  }
+}

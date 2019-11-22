@@ -9,28 +9,22 @@
 
   <form
     [formGroup]="formLogin"
-    (ngSubmit)="toHome()"
+    (ngSubmit)="submit()"
   >
     <ion-list>
       <ion-item>
           <ion-label position="stacked">E-mail</ion-label>
-          <ion-input class="" formControlName="email"></ion-input>
+          <ion-input formControlName="email"></ion-input>
       </ion-item>
-      <div  *ngIf="formLogin.get('email').errors && formLogin.get('email').touched && formLogin.get('email').dirty && showErrorMessage" class="error-message">
-        <p *ngIf="formLogin.get('email').errors.required">Ingrese un email</p>
-      </div>
 
       <ion-item>
           <ion-label position="stacked">Contraseña</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
-      <div  *ngIf="formLogin.get('password').errors && formLogin.get('password').touched && formLogin.get('password').dirty && showErrorMessage" class="error-message">
-        <p *ngIf="formLogin.get('password').errors.required">Ingrese una contraseña</p>
-      </div>
 
     </ion-list>
     <div class="login-enter">
-        <ion-button color="primary" (click)="toHome()">Ingreso</ion-button>
+        <ion-button color="primary" type="submit">Ingreso</ion-button>
     </div>
     <div class="login-register">
       ¿No tienes cuenta?

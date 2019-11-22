@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup.component';
+import { CustomersService } from '@reserb-app/core/services/api/customers.service';
 
 export const HomeRoutes: Routes = [
   {
@@ -11,7 +12,8 @@ export const HomeRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(HomeRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CustomersService]
 })
 export class SignupRoutingModule {
 }
