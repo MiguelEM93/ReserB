@@ -1,25 +1,27 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from '@reserb-app/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter, takeUntil } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
+import { UserDataService } from '../shared/user-data.service';
 
 @Component({
   providers: [LoginService],
   selector: 'page-login',
   templateUrl: 'login.component.html',
-  styleUrls: ['login.component.scss']
+  styleUrls: ['login.component.scss'],
 })
-export class LoginComponent extends BaseComponent implements OnInit, AfterViewInit {
+export class LoginComponent extends BaseComponent implements OnInit, AfterViewInit, OnDestroy {
 
   formLogin: FormGroup;
 
   constructor(
     private router: Router,
     protected loginService: LoginService,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public userDataService: UserDataService,
   ) {
     super();
     this.loginService.callCusotomersService();
@@ -36,11 +38,15 @@ export class LoginComponent extends BaseComponent implements OnInit, AfterViewIn
     });
   }
 
+  ngOnDestroy() {
+    super.ngOnDestroy();
+  }
+
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
+      header: 'Error',
+      subHeader: 'DATOS INCORRECTOS',
+      message: 'El email y/o la contraseña son incorrectos',
       buttons: ['OK']
     });
     await alert.present();
@@ -71,10 +77,12 @@ export class LoginComponent extends BaseComponent implements OnInit, AfterViewIn
   listenLoginCredentials() {
     const filterData = (data) => data;
     this.loginService.login$
-      .pipe(filter(filterData), takeUntil(this.destroy$))
+      .pipe(takeUntil(this.destroy$), filter(filterData))
       .subscribe((data) => {
+        this.userDataService.userData = data;
         if(data.status === 'success'){
           this.router.navigate(['/home/tab1']);
+            // this.userDataService = data.customer;
         } else {
           this.presentAlert();
         }

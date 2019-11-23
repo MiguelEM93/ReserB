@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from './signup.service';
 import * as moment from 'moment';
+import { BaseComponent } from '@reserb-app/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   providers: [SignupService],
@@ -10,21 +12,55 @@ import * as moment from 'moment';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent extends BaseComponent implements OnInit, OnDestroy {
 
   formSignup: FormGroup;
   maxDate = moment().toISOString();
 
-  constructor(private router: Router, private signupService: SignupService) { }
+  constructor(
+    private router: Router,
+    private signupService: SignupService,
+    public alertController: AlertController,
+  ) {
+    super();
+  }
 
   ngOnInit() {
     this.initForm();
+    this.listenCreateCustomer();
+  }
+
+  ngOnDestroy(){
+    super.ngOnDestroy();
   }
 
   submit() {
-    // this.router.navigate(['/login']);
     const request =  this.prepareData();
     this.signupService.callCreateCustomerService(request);;
+  }
+
+  listenCreateCustomer() {
+    this.signupService.createCustomer$.subscribe((data) => {
+      if(data && data.status === 'success'){
+        this.alertCreated();
+      }
+    });
+  }
+
+  async alertCreated() {
+    const alert = await this.alertController.create({
+      header: 'FELICIDADES !',
+      message: 'El usuario ha sido creado con éxito.',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.toLogin();
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   prepareData(): any {
@@ -42,6 +78,10 @@ export class SignupComponent implements OnInit {
       birthdate: birthdate
     };
     return request;
+  }
+
+  toLogin() {
+    this.router.navigate(['/login']);
   }
 
   initForm() {

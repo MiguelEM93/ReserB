@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.app",
+  "appName": "reserb",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

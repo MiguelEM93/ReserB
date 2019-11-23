@@ -7,7 +7,7 @@ import { CustomersService } from '@reserb-app/core/services/api/customers.servic
 @Injectable()
 export class SignupService extends BaseService {
 
-  createCustomer: Subject<any> = new Subject<any>();
+  createCustomer$: Subject<any> = new Subject<any>();
 
     constructor(private customersService: CustomersService){
       super();
@@ -19,7 +19,7 @@ export class SignupService extends BaseService {
       customer
         .pipe(
           map((data) => {
-            this.createCustomer.next(data);
+            this.createCustomer$.next(data);
           }),
           catchError((error) => of(error))
         )

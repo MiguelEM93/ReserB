@@ -7,8 +7,8 @@
 </ion-header>
 
 <ion-content>
-  <div class="card-content">
-    Bienvenido <span>Cristian.</span>
+  <div class="card-content" *ngIf="userInfo">
+    Bienvenido <span>{{ userInfo.customer.forenames }}.</span>
     <br>
     Con ReserB podras reservar todo tipo de espacios al toque. <br /><br />Ya
     sea un hospedaje, una mesa de restaurante, una losa deportiva, o una sala
