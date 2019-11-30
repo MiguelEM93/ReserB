@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { UserDataService } from '../shared/user-data.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -11,7 +12,11 @@ export class Tab1Page implements OnInit, AfterViewInit {
 
   userInfo: any;
 
-  constructor(private router: Router, public userDataService: UserDataService) {
+  constructor(
+    private router: Router,
+    public userDataService: UserDataService,
+    public modalController: ModalController
+  ) {
   }
 
   ngOnInit(): void {

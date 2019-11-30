@@ -32,6 +32,7 @@ export class SignupComponent extends BaseComponent implements OnInit, OnDestroy 
 
   ngOnDestroy(){
     super.ngOnDestroy();
+    this.resetForm();
   }
 
   submit() {
@@ -43,6 +44,8 @@ export class SignupComponent extends BaseComponent implements OnInit, OnDestroy 
     this.signupService.createCustomer$.subscribe((data) => {
       if(data && data.status === 'success'){
         this.alertCreated();
+      } else {
+        this.alertFailed();
       }
     });
   }
@@ -56,6 +59,22 @@ export class SignupComponent extends BaseComponent implements OnInit, OnDestroy 
           text: 'Aceptar',
           handler: () => {
             this.toLogin();
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  async alertFailed() {
+    const alert = await this.alertController.create({
+      header: 'ERROR !',
+      message: 'Al parecer el correo ya esta siendo usado',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.resetForm();
           }
         }
       ]
@@ -95,5 +114,8 @@ export class SignupComponent extends BaseComponent implements OnInit, OnDestroy 
     })
   }
 
+  resetForm() {
+    this.formSignup.reset();
+  }
 
 }

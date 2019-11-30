@@ -10,6 +10,6 @@ import { UserDataService } from './pages/shared/user-data.service';
   imports: [CoreModule, SharedModule, AppRoutingModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
-  providers: [UserDataService]
+  providers: [UserDataService],
 })
 export class AppModule {}

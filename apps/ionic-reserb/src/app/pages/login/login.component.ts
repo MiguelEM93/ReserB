@@ -40,6 +40,7 @@ export class LoginComponent extends BaseComponent implements OnInit, AfterViewIn
 
   ngOnDestroy() {
     super.ngOnDestroy();
+    this.resetForm();
   }
 
   async presentAlert() {
@@ -98,4 +99,9 @@ export class LoginComponent extends BaseComponent implements OnInit, AfterViewIn
   toSignUp() {
     this.router.navigate(['/signup']);
   }
+
+  resetForm() {
+    this.formLogin.reset();
+  }
+
 }

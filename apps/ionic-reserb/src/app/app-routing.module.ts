@@ -17,7 +17,12 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./pages/home/home.module').then(m => m.HomeModule)
-  }
+  },
+  // {
+  //   path: 'choose-schedule',
+  //   loadChildren: () =>
+  //     import('./pages/choose-schedule/choose-schedule.module').then(m => m.ChooseScheduleModule)
+  // }
 ];
 
 @NgModule({
