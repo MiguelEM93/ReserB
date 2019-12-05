@@ -6,7 +6,7 @@
           <ion-col size="10">
             <ion-title>Localiza tu espacio</ion-title>
           </ion-col>
-          <ion-col size="2" class="icon-position">
+          <ion-col size="2" class="icon-position" (click)="close()">
             <ion-icon name="close" class="icon-style"></ion-icon>
           </ion-col>
         </ion-row>
@@ -22,9 +22,20 @@
       <div class="p-20">
         <ion-item>
           <ion-label>Escoge una categoría</ion-label>
-          <ion-select formControlName="categories" [(ngModel)]="firstValueOfSelect">
+          <ion-select formControlName="categories" [(ngModel)]="categorySelected" (ionChange)="changeVal($event)">
             <ion-select-option *ngFor="let cat of categoriesList">
               {{ cat.name }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div class="p-20">
+        <ion-item>
+          <ion-label>Escoge un local</ion-label>
+          <ion-select formControlName="locales">
+            <ion-select-option *ngFor="let local of locales">
+              {{ lolcal(cat.name) }}
             </ion-select-option>
           </ion-select>
         </ion-item>

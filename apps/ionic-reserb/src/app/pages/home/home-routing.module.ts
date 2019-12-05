@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { AreaService } from '@reserb-app/core/services/api';
+
+export const SERVICES = [
+  AreaService
+];
 
 export const HomeRoutes: Routes = [
   {
@@ -58,6 +63,7 @@ export const HomeRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(HomeRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [...SERVICES]
 })
 export class HomeRoutingModule {}

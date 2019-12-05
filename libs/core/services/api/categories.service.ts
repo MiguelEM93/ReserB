@@ -10,4 +10,8 @@ export class CategoriesService {
     return this.apiService.get(`/Category/5da1652d1f09ca1768324ff3`);
   }
 
+  locales(category): Observable<any> {
+    return this.apiService.get(`/Space/category/${category}`);
+  }
+
 }

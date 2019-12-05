@@ -1,4 +1,4 @@
-import { HttpClient, HttpEventType, HttpParams, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpEventType, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { of, Observable, Subject } from 'rxjs';

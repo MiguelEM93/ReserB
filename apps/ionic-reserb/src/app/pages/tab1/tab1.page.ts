@@ -2,13 +2,14 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { UserDataService } from '../shared/user-data.service';
 import { ModalController } from '@ionic/angular';
+import { BaseComponent } from '@reserb-app/core';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit, AfterViewInit {
+export class Tab1Page extends BaseComponent implements OnInit, AfterViewInit {
 
   userInfo: any;
 
@@ -17,14 +18,14 @@ export class Tab1Page implements OnInit, AfterViewInit {
     public userDataService: UserDataService,
     public modalController: ModalController
   ) {
+    super();
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit() {
     this.getUserData();
   }
+
+  ngAfterViewInit() {}
 
   toItems() {
     this.router.navigate(['/home/tab2']);

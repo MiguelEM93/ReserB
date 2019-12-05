@@ -1,8 +1,15 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../../../../../libs/core/index';
 import { ModalCategoryService } from './modal-category.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { isEmpty } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { BaseComponent } from '@reserb-app/core';
+import { filter, find } from 'ramda';
+
+interface CategoryInterface {
+  id: string,
+  name: string,
+  sector: string,
+}
 
 @Component({
   providers: [ModalCategoryService],
@@ -14,20 +21,28 @@ export class ModalCategoryComponent extends BaseComponent implements OnInit, Aft
 
   formCategory: FormGroup;
   categoriesList: any;
-  firstValueOfSelect: any;
+  itemSelected: any;
+  categorySelected: any;
 
-  constructor(protected modalCategoryService: ModalCategoryService) {
+  constructor(
+    protected modalCategoryService: ModalCategoryService,
+    public modalController: ModalController,
+  ) {
     super();
   }
 
   ngOnInit() {
     this.modalCategoryService.callCategoriesService();
+    this.listenCategories();
     this.initForm();
   }
 
   ngAfterViewInit() {
+    this.listenSelectCategories();
+  }
+
+  listenCategories() {
     this.modalCategoryService.categories$.subscribe((data) => {
-      console.log("LISTA", data);
       if (data && data.length > 0) {
         this.categoriesList = data;
       }
@@ -36,12 +51,27 @@ export class ModalCategoryComponent extends BaseComponent implements OnInit, Aft
 
   initForm(){
     this.formCategory = new FormGroup({
-      categories: new FormControl('')
+      categories: new FormControl(''),
+      locales: new FormControl('')
     })
   }
 
-  toChooseSchedule() {
-    console.log("CATEGORIA", this.formCategory.get('categories').value);
+  toChooseSchedule() {}
+
+  listenSelectCategories() {
+    this.formCategory.get('categories').valueChanges.subscribe((data: string) => {
+      const catSelected = this.categoriesList.filter((a) => {
+        return a.name === data.replace(/ /g, "");
+      });
+      const getId = catSelected[0].id;
+      console.log("SELECCIONADO", getId);
+    }); 
+  }
+
+  changeVal(event){}
+
+  async close() {
+    return this.modalController.dismiss();
   }
 
 }
