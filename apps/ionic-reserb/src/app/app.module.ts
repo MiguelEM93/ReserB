@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './features/shared/shared.module';
@@ -11,5 +11,6 @@ import { UserDataService } from './pages/shared/user-data.service';
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [UserDataService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

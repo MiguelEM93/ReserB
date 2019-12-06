@@ -41,10 +41,15 @@
         </ion-item>
       </div>
 
-      <div class="p-20 button-category">
+      <div class="button-category">
+        <ion-button color="primary" (click)="showMap()">Mostrar ubicación</ion-button>
         <ion-button color="primary" (click)="toChooseSchedule()">Siguiente</ion-button>
       </div>
 
     </ion-list>
   </form>
+
+  <div>
+      <reserb-spaces-google-maps *ngIf="(coordinates$|async) as coords" [coords]="coords"></reserb-spaces-google-maps>
+  </div>
 </ion-content>

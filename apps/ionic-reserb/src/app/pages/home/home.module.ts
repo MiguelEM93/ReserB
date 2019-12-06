@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../../features/shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { SpacesGoogleMapsComponent } from 'src/app/components';
 
 @NgModule({
   imports: [SharedModule, HomeRoutingModule],

@@ -10,7 +10,10 @@
 }
 
 .button-category {
-  font-size: 14px;
-  margin: 20px 0;
-  text-align: center;
+  margin: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  ion-button{
+    font-size: 12px;
+  }
 }
